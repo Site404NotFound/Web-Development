@@ -1,0 +1,50 @@
+table {
+    border-style: solid;
+}
+
+th, td {
+    border-style: solid;
+}
+
+tbody th  {
+	font-weight: normal;
+	font-style: italic;
+}
+
+/*https://stackoverflow.com/questions/14410606/table-with-alternate-backround-rows-and-header*/
+tbody tr:nth-of-type(odd) {
+   background-color: lightgreen;
+}
+
+tbody tr:nth-of-type(even) {
+   background-color: lightblue
+}
+
+ul {
+	list-style-type: none;
+}
+
+ul.first {
+	padding-left: 0;
+}
+
+div.outer-content {
+	background-color: pink;
+	width: 75%;
+	float: left;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+div.inner-content {
+	background-color: lightblue;
+	width: 75%;
+	text-align: center;
+	position: center;
+	/*Found this code at https://stackoverflow.com/questions/114543/how-to-horizontally-center-a-div-in-another-div*/
+	margin: 0 auto;		
+}
+
+form {
+	margin-top: 10px;
+}
