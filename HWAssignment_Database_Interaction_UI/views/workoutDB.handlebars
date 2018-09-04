@@ -1,0 +1,84 @@
+<div id="headcont"class="container">
+  <div id="heading" class="jumbotron">
+    <h1 class="display-3">
+      Workout Tracker</h1>
+    <p class="lead">
+      Database to interactively track workouts
+    </p>
+    <form action="/reset-table" method="get">
+      <button type="submit" class="btn btn-primary">Load / Reload Table</button>
+    </form>
+    <hr class="my-4">
+        <h1 class="display-title"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create New Workout</h1>
+    <form id="add_workout" action="/workoutinsert" method="get">
+      <div class="row">
+        <div class="col-md-3 mb-3"></div>
+        <div class="col-md-6 mb-3">
+          <label for="validationServer01">Workout Name</label>
+          <input type="text" class="form-control is-invalid" id="validationServer01" name="workout_name" placeholder="Enter Workout Name" required>
+          <div class="invalid-feedback">
+            Workout Name Is Required
+          </div>
+        </div>
+        <div class="col-md-3 mb-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label for="validationServer01">Enter Repetitions</label>
+          <input type="number" class="form-control is-valid" id="validationServer01" name="reps" placeholder="Enter Reps (Number Value)">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer01">Enter Weight</label>
+          <input type="number" class="form-control is-valid" id="validationServer01" name="weight" placeholder="Enter Weight (Number Value)">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer01">Enter Date</label>
+          <input type="date" class="form-control is-valid" id="validationServer01" name="date" placeholder="Enter Date (YYYY-MM-DD)">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputUnits">Enter Units</label>
+          <select name="units" class="form-control is-valid" id="inputUnits" class="form-control">
+            <option disabled selected value>Choose Units...</option>
+            <option value="0">0 - Pounds (lbs)</option>
+            <option value="1">1 - Kilograms (kgs)</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn btn-dark" type="submit" value="Submit">Create New Workout</button>
+    </form>
+  </div>
+    <div id="heading" class="jumbotron event">
+    <h1 class="display-title"><i class="fa fa-list" aria-hidden="true"></i> Current Workout List</h1>
+    <table>
+      <caption>Workout Information Table</caption>
+      <thead>
+        <tr>
+          <th>Workout Name</th>
+          <th>Repetitions</th>
+          <th>Weight</th>
+          <th>Date</th>
+          <th>Units</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each workouts}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.reps}}</td>
+            <td>{{this.weight}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.lbs}}</td>
+            <form action="/workouts:{{this.id}}" method="link" type="hidden">
+              <td class="update_button"><button type="submit" class="btn btn-warning">Update</button></td>
+            </form>
+            <form action="/workoutdelete:{{this.id}}" method="link" type="hidden">
+              <td class="delete_button"><button type="submit" class="btn btn-danger">Delete</button></td>
+            </form>
+          </tr>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

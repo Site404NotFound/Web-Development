@@ -1,0 +1,48 @@
+<div id="headcont"class="container">
+  <div id="heading" class="jumbotron">
+    <h1 class="display-3">
+      <i class="fa fa-pencil-square" aria-hidden="true"></i>
+      Update Workout...<br>
+      {{#each workouts}}
+        <em>{{this.name}}</em>
+    </h1>
+    <hr class="my-4">
+    <form id="workoutupdate" action="/updateworkouts:{{id}}" method="get">
+      <div class="row">
+        <div class="col-md-3 mb-3"></div>
+        <div class="col-md-6 mb-3">
+          <label for="validationServer01">Update Workout Name</label>
+          <input type="text" class="form-control is-invalid" id="validationServer01" name="workout_name" value="{{this.name}}" placeholder="Enter Workout Name" required>
+          <div class="invalid-feedback">
+            Workout Name Is Required
+          </div>
+        </div>
+        <div class="col-md-3 mb-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label for="validationServer01">Update Repetitions</label>
+          <input type="number" class="form-control is-valid" id="validationServer01" name="reps" value="{{this.reps}}" placeholder="Enter Reps (Number Value)">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer01">Update Weight</label>
+          <input type="number" class="form-control is-valid" id="validationServer01" name="weight" value="{{this.weight}}" placeholder="Enter Weight (Number Value)">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer01">Update Date</label>
+          <input type="date" class="form-control is-valid" id="validationServer01" name="date" value="{{this.date}}" placeholder="Enter Date (YYYY-MM-DD)">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputUnits">Enter Units</label>
+          <select name="units" class="form-control is-valid" id="inputUnits" class="form-control">
+            <option value="{{this.lbs}}" selected>{{this.lbs}}</option>
+            <option value="0">0 - Pounds (lbs)</option>
+            <option value="1">1 - Kilograms (kgs)</option>
+          </select>
+        </div>
+            </div>
+        <button class="btn btn-dark" type="submit" value="Submit">Update Workout</button>
+    </form>
+</div>
+    </div>
+      {{/each}}
