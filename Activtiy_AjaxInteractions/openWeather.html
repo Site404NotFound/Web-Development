@@ -1,0 +1,39 @@
+<!-- Author: James Hippler (ONID# 932807333)
+Course: CS 290-400 Web Development
+Activity: Ajax Interactions
+Due: Sunday, November 05, 2017 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HipplerJ Ajax Activities</title>
+  </head>
+  <body>
+    <h1>Activity: Ajax Interactions</h1>
+    <h2>Open Weather Map Form (GET)</h2>
+    <form>
+      <fieldset>
+        <legend>Check Today's Weather</legend>
+        <div class="cityNameField">
+          <label for="cityName">City Name: </label>
+          <input type="text" name="cityName" id="cityName" placeholder="Enter City Name">
+          <input type="submit" id="citySubmit">
+        </div>
+        <div class="cityZipField">
+          <label for="cityZip">Zip Code:  </label>
+          <input type="text" name="cityZip" id="cityZip" placeholder="Enter Zip Code">
+          <input type="submit" id="zipSubmit">
+        </div>
+      </fieldset>
+    </form>
+    <div>
+      <h2><span id="cityDisplay"></span></h2>
+      <span id="cityoutput"></span><br>
+      <span id="weatheroutput"></span><br>
+      <span id="humidityoutput"></span><br>
+    </div>
+
+    <script src="openWeather.js"></script>
+  </body>
+</html>
